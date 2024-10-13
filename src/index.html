@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>Weather APP</title>
+    <style>
+    .card-forcast{
+        background: rgb(96,178,251);
+        background: linear-gradient(326deg, rgb(96, 117, 251) 2%, rgb(153, 80, 237) 100%);
+    }
+    .current-forcast
+    {
+        background: rgb(195,96,244);
+        background: linear-gradient(214deg, rgba(195,96,244,1) 1%, rgba(19,33,231,1) 100%);
+    }
+    .body-bg{
+        background: rgb(222,240,238);
+        background: linear-gradient(153deg, rgba(222,240,238,0.9806295399515739) 41%, rgba(0,12,5,0.6610169491525424) 82%);
+    }
+
+.dropdown-content
+{
+    display: none;
+    overflow-y: scroll;
+    
+}
+.dropdown-content::-webkit-scrollbar {
+  display: none;
+}
+.dropdown-content p {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color:rgb(245, 245, 245);
+}
+    </style>
+</head>
+<body>
+<header class="sticky h-16  text-center font-bold pt-4 text-2xl current-forcast text-white">
+<h1 style="font-family: cursive;">Wheather Dashboard</h1>
+</header>
+ <main class="flex flex-col  px-5 lg:flex-row">
+ <div class="flex flex-col justify-items-center flex-wrap p-4">
+    <h2 class=" h-12 font-semibold">Enter City Name</h2>
+    <div class="flex flex-col lg:w-96 h-36">
+    <input class="  h-12 outline-none border-b-2 border-blue-700 p-5" id="city" type="text" placeholder="E.g., Singappor, Paris, Mumbai."/>
+    <div id="myDropdown" class="dropdown-content h-24"></div>
+    </div>
+    <div class="flex flex-row  mt-10  text-white font-semibold lg:px-14 lg:mt-1">
+    <button id ="searchcitybtn" class="bg-violet-600 w-64 rounded-3xl h-10">Search</button>
+    <span class="font-extrabold text-black text-center m-2 lg:mt-4">OR</span>
+    <button id="currentlocationbtn" class="w-64 rounded-3xl h-10  flex bg-yellow-400">
+        <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48px" height="40px" viewBox="-6.4 -6.4 76.80 76.80" enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0">
+        </g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+        </g><g id="SVGRepo_iconCarrier">
+         <g> 
+            <path fill="#231F20" d="M32,0C18.745,0,8,10.745,8,24c0,5.678,2.502,10.671,5.271,15l17.097,24.156C30.743,63.686,31.352,64,32,64 s1.257-0.314,1.632-0.844L50.729,39C53.375,35.438,56,29.678,56,24C56,10.745,45.255,0,32,0z M32,38c-7.732,0-14-6.268-14-14 s6.268-14,14-14s14,6.268,14,14S39.732,38,32,38z"></path> <path fill="#231F20" d="M32,12c-6.627,0-12,5.373-12,12s5.373,12,12,12s12-5.373,12-12S38.627,12,32,12z M32,34 c-5.523,0-10-4.478-10-10s4.477-10,10-10s10,4.478,10,10S37.523,34,32,34z">
+            </path> 
+        </g> </g></svg>
+       <span class="p-2"> Use Current Location</span>
+    </button>
+ </div>
+ </div>
+ <div class="flex flex-col mt-10  lg:mt-16 lg:flex-grow p-2">
+    <div class="card shadow-xl shadow-blue-700 h-48 flex flex-col current-forcast">
+        <div class="card-body flex p-3 text-white">
+            <div class="flex-grow p-4">
+            <div class="card-title font-semibold text-lg">Lets see Todays Weather of </div>
+            <h4 class="card-city">City</h4>
+            <p class="card-temp">Temprature</p>
+            <p class="card-wind">Wind</p>
+            <p class="card-humidity">Humidity</p>
+            </div>
+        <div class="flex flex-col text-center">
+            <img class="card-img" src="02d@2x.png" alt="whether" />
+            <p class="card-wstatus">Clear Sky</p>
+        </div>
+    </div>
+    </div>
+    <h2 id="five_days" class="font-semibold text-2xl mt-6" style="display:none;">5-DAY FORCAST</h2>
+    <hr class="mt-10 h-0.5 bg-slate-800">
+    <div id="forcastdiv" class="flex flex-wrap gap-12 lg:gap-4">
+    </div> 
+ </div>
+ </main>
+</body>
+<script src="index.js"></script>
+</html>
